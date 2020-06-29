@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import { DvDataList } from './../../dist'
+import { DvDataList } from './../../index.js'
 Vue.use(DvDataList)
 
 import Vuetify from 'vuetify/lib'

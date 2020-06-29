@@ -1,4 +1,4 @@
-import component from './../DvDataList.vue'
+import component from './DvDataList.vue'
 
 export const DvDataList = {
   install (Vue) {
