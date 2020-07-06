@@ -1,10 +1,10 @@
 <template>
-  <v-layout class="dv-data-list" >
+  <v-layout class="dv-data-list ma-2" >
     <v-flex
       md12
       sm12
-      xs12 >
-      <!-- Propiedades -->
+      xs12
+      class="px-2" >
       <v-tabs
         v-model="active"
         fixed-tabs
@@ -20,7 +20,7 @@
           <v-tab-item
             class="dv-data-list__v-tab-item"
             :key="data.indexOf(group)" >
-            <v-card flat class="pt-2" >
+            <v-card flat >
               <v-layout v-if="group.descripcion != null" >
                 <v-flex>
                   <span v-html="group.descripcion" />
@@ -151,41 +151,45 @@ export default {
   created () {
     this.mainId = this.setMainId()
     this.entorno = this
-    this.data.forEach((group) => {
-      group.items = [ ...(group.items != null ? group.items : [])  ]
-      group.textoBusqueda = ''
-      group.allItems = true
-      group.itemsFiltered = [ ...group.items ]
-      group.buscar = function (me) {
-        this.textoBusqueda = this.textoBusqueda ? this.textoBusqueda.trim() : null
-        let baseItems = [...this.items]
-        if (!this.allItems) {
-          baseItems = [ ...this.items.filter(obj => (obj.important)) ]
-        }
-        if (this.textoBusqueda == null || this.textoBusqueda === '') {
-          this.itemsFiltered = []
-          this.itemsFiltered = [...baseItems]
-        } else {
-          this.itemsFiltered = []
-          this.itemsFiltered = baseItems.filter(element =>
-            element.nombre.toUpperCase().includes(this.textoBusqueda.toUpperCase()) ||
-            element.descripcion.toUpperCase().includes(this.textoBusqueda.toUpperCase())
-          )
-        }
-        me.$forceUpdate()
-      }
-      group.changeAllItems = function (me, value) {
-        this.allItems = value
-        let baseItems = [...this.items]
-        if (!this.allItems) {
-          baseItems = [ ...this.items.filter(obj => (obj.important)) ]
-        }
-        this.itemsFiltered = [ ...baseItems ]
-        me.$forceUpdate()
-      }
-    })
+    this.inicializar()
   },
   methods: {
+    inicializar () {
+      this.data.forEach((group) => {
+        group.items = [ ...(group.items != null ? group.items : [])  ]
+        group.textoBusqueda = ''
+        group.allItems = true
+        group.itemsFiltered = [ ...group.items ]
+        group.buscar = function (me) {
+          this.textoBusqueda = this.textoBusqueda ? this.textoBusqueda.trim() : null
+          let baseItems = [...this.items]
+          if (!this.allItems) {
+            baseItems = [ ...this.items.filter(obj => (obj.important)) ]
+          }
+          if (this.textoBusqueda == null || this.textoBusqueda === '') {
+            this.itemsFiltered = []
+            this.itemsFiltered = [...baseItems]
+          } else {
+            this.itemsFiltered = []
+            this.itemsFiltered = baseItems.filter(element =>
+              element.nombre.toUpperCase().includes(this.textoBusqueda.toUpperCase()) ||
+              element.descripcion.toUpperCase().includes(this.textoBusqueda.toUpperCase())
+            )
+          }
+          me.$forceUpdate()
+        }
+        group.changeAllItems = function (me, value) {
+          this.allItems = value
+          let baseItems = [...this.items]
+          if (!this.allItems) {
+            baseItems = [ ...this.items.filter(obj => (obj.important)) ]
+          }
+          this.itemsFiltered = [ ...baseItems ]
+          me.$forceUpdate()
+        }
+      })
+      this.$forceUpdate()
+    },
     colorProp (item, group) {
       let index = group.indexOf(item)
       if (index % 2 === 0) {

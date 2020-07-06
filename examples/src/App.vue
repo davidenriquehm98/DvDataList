@@ -12,32 +12,36 @@
         style="background: white;" >
         <span class="display-1" >
           Dv Data List
+          <v-chip
+            label
+            outline
+            color="red" >
+            <strong>
+              dv-data-list
+            </strong>
+          </v-chip>
         </span>
         <br>
-        <v-chip
-          label
-          outline
-          color="red" >
-          <strong>
-            dv-data-list
-          </strong>
-        </v-chip>
-        <v-card>
-          <v-card-text>
-            <span class="font-weight-medium" style="color: #cfcdcd;" >
-              > API
-            </span>
-            <dv-data-list :data="data" />
-          </v-card-text>
+        <slot name="head-line" />
+        <example1 ref="ex1" />
+        <v-card class="px-2" >
+          <span class="font-weight-medium" style="color: #cfcdcd;" >
+            > API
+          </span>
+          <dv-data-list :data="data" />
         </v-card>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 <script>
-import { Api } from './API' 
+import { Api } from './API'
+import Example1 from './components/example1'
 export default {
   name: 'App',
+  components: {
+    Example1
+  },
   data () {
     return {
       data: [ ...Api ]
