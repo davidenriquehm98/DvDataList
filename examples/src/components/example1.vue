@@ -5,7 +5,7 @@
       @change="refreshAll()"
       color="cyan"
       slider-color="yellow"
-      style="border:solid 1px black" >
+      style="border:solid 1px black; min-height:50px" >
       <v-tab ripple >
         <span class="font-weight-bold text-capitalize" >Example</span>
       </v-tab>

@@ -9,7 +9,8 @@
         v-model="active"
         fixed-tabs
         show-arrows
-        slider-color="yellow" >
+        slider-color="yellow"
+        style="min-height:50px" >
         <template v-for="group in data" >
           <v-tab
             ripple
