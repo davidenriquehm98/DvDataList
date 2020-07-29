@@ -7,10 +7,10 @@
       class="px-2" >
       <v-tabs
         v-model="active"
+        class="dv-data-list__v-tabs"
         fixed-tabs
         show-arrows
-        slider-color="yellow"
-        style="min-height:50px" >
+        slider-color="yellow" >
         <template v-for="group in data" >
           <v-tab
             ripple
@@ -221,5 +221,11 @@ export default {
 }
 .dv-data-list__v-chips {
   padding: 0;
+}
+.dv-data-list__v-tabs {
+  min-height: 50px;
+}
+.dv-data-list__v-tabs div.v-window {
+  margin-top: 15px;
 }
 </style>
