@@ -1,7 +1,6 @@
 <template>
   <v-container
-    fill-height
-    grid-list-xl>
+    fill-height >
     <v-layout
       justify-center
       wrap >
@@ -51,9 +50,9 @@ export default {
 </script>
 <style>
   body {
-      background-color: #072d1a;
-      background-image: url("https://www.entropiacreatividad.com/wp-content/uploads/2017/12/fondo-web-entropia-1920x1200-grisoscuro3-1200x900.png");
-      background-repeat: repeat;
-      font-family: 'Varela Round', sans-serif;
-    }
+    background-color: #072d1a;
+    background-image: url("https://www.entropiacreatividad.com/wp-content/uploads/2017/12/fondo-web-entropia-1920x1200-grisoscuro3-1200x900.png");
+    background-repeat: repeat;
+    font-family: 'Varela Round', sans-serif;
+  }
 </style>

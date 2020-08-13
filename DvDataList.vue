@@ -1,10 +1,9 @@
 <template>
-  <v-layout class="dv-data-list ma-2" >
+  <v-layout class="dv-data-list " >
     <v-flex
       md12
       sm12
-      xs12
-      class="px-2" >
+      xs12 >
       <v-tabs
         v-model="active"
         class="dv-data-list__v-tabs"
@@ -66,11 +65,13 @@
                     <strong>Importantes </strong>
                   </v-chip>
                 </v-flex>
-                <v-flex md6 sm6 xs12 class="pt-0 " >
+                <v-flex md6 sm6 xs12>
                   <v-text-field
                     v-model="group.textoBusqueda"
                     label="Buscar"
                     height="20"
+                    class="pa-0 ma-0"
+                    hide-details
                     prepend-icon="search"
                     @keyup="group.buscar(entorno)" />
                 </v-flex>
@@ -81,7 +82,9 @@
                   :key="item.nombre"
                   :style="'background:' + colorProp(item, group.itemsFiltered)"
                   row
-                  wrap >
+                  wrap
+                  py-1
+                  px-2 >
                   <v-flex
                     md4
                     sm4
@@ -224,8 +227,5 @@ export default {
 }
 .dv-data-list__v-tabs {
   min-height: 50px;
-}
-.dv-data-list__v-tabs div.v-window {
-  margin-top: 15px;
 }
 </style>
