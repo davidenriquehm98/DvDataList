@@ -16,7 +16,7 @@
     "decode-uri-component": ">=0.2.1",
     "elliptic": ">=6.6.1",
     "eventsource": ">=1.1.1",
-    "follow-redirects": ">=1.15.6",
+    "follow-redirects": ">=1.16.0",
     "form-data": ">=2.5.4",
     "glob-parent": ">=5.1.2",
     "http-proxy-middleware": ">=2.0.7",
